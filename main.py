@@ -59,9 +59,9 @@ def verify():
         email_error = "Must not contain spaces"
 #Error if email contains multiple "@" or "."
     if email.count('@') != 1:
-        email_error = "Must contain one @ symbol"
+        email_error = "Must be a valid email"
     if email.count('.') != 1:
-        email_error = "Must contain one period"
+        email_error = "Must be a valid email"
 #Error if user leaves any fields empty (besides email)
     if blank(username):
         user_error = "Must enter a username"
@@ -69,15 +69,20 @@ def verify():
         pass_error = "Must enter a password"
     if blank(verify):
         verify_error = "Must re-enter password"
-#If no errors, take user to Welcome page
+    if blank(email):
+        email_error = ""
+   
+ #If no errors, take user to Welcome page  
     if not user_error and not pass_error and not verify_error and not email_error:
         return render_template('welcome.html', username=username)
-    else:
+    else:    
         return render_template('forms.html', 
                                 user_error=user_error,
                                 pass_error=pass_error, 
                                 verify_error=verify_error, 
-                                email_error=email_error)
+                                email_error=email_error,
+                                username=username,
+                                email=email)
 
 
 app.run()

@@ -4,28 +4,47 @@
 
 <h1>Signup</h1>
 <form action ='/welcome' method="POST">
-
-    <label for "username">Username
-    <input type="text" name="username" value={{username}}></label>
-    {{user_error}}
-
-    <br>
-
-    <label>Password
-    <input type="password" name="password" value={{password}}></label>
-    {{pass_error}}
-
-    <br>
-
-    <label>Verify Password
-    <input type="password" name="verify" value={{verify}}></label>
-    {{verify_error}}
-
-    <br>
-
-    <label>Email (Optional)
-    <input type="text" name="email" value={{email}}></label>
-    {{email_error}}
+    
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <label for "username">Username:</label>
+                </td>
+                <td>
+                    <input type="text" name="username" value="{{username}}">
+                    <span class="error">{{user_error}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for "password">Password:</label>
+                </td>
+                <td>
+                    <input type="password" name="password" value="{{password}}">
+                    <span class="error">{{pass_error}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for "verify">Verify Password:</label>
+                </td>
+                <td>
+                    <input type="password" name="verify" value="{{verify}}">
+                    <span class="error">{{verify_error}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for "email">Email Address:</label>
+                </td>
+                <td>
+                    <input type="text" name="email" value="{{email}}">
+                    <span class="error">{{email_error}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
     <br>
 
